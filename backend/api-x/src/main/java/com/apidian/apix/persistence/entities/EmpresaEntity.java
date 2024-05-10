@@ -9,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.util.Objects;
 
 @Entity
 @Table(name = "empresa")
@@ -27,4 +28,94 @@ public class EmpresaEntity {
 
     @OneToMany(mappedBy = "empresa")
     private List<NumeracionEntity> numeraciones;
+
+
+    public EmpresaEntity() {
+    }
+
+    public EmpresaEntity(Long id, String identificacion, String razonsocial, List<NumeracionEntity> numeraciones) {
+        this.id = id;
+        this.identificacion = identificacion;
+        this.razonsocial = razonsocial;
+        this.numeraciones = numeraciones;
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getIdentificacion() {
+        return this.identificacion;
+    }
+
+    public void setIdentificacion(String identificacion) {
+        this.identificacion = identificacion;
+    }
+
+    public String getRazonsocial() {
+        return this.razonsocial;
+    }
+
+    public void setRazonsocial(String razonsocial) {
+        this.razonsocial = razonsocial;
+    }
+
+    public List<NumeracionEntity> getNumeraciones() {
+        return this.numeraciones;
+    }
+
+    public void setNumeraciones(List<NumeracionEntity> numeraciones) {
+        this.numeraciones = numeraciones;
+    }
+
+    public EmpresaEntity id(Long id) {
+        setId(id);
+        return this;
+    }
+
+    public EmpresaEntity identificacion(String identificacion) {
+        setIdentificacion(identificacion);
+        return this;
+    }
+
+    public EmpresaEntity razonsocial(String razonsocial) {
+        setRazonsocial(razonsocial);
+        return this;
+    }
+
+    public EmpresaEntity numeraciones(List<NumeracionEntity> numeraciones) {
+        setNumeraciones(numeraciones);
+        return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this)
+            return true;
+        if (!(o instanceof EmpresaEntity)) {
+            return false;
+        }
+        EmpresaEntity empresaEntity = (EmpresaEntity) o;
+        return Objects.equals(id, empresaEntity.id) && Objects.equals(identificacion, empresaEntity.identificacion) && Objects.equals(razonsocial, empresaEntity.razonsocial) && Objects.equals(numeraciones, empresaEntity.numeraciones);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, identificacion, razonsocial, numeraciones);
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId() + "'" +
+            ", identificacion='" + getIdentificacion() + "'" +
+            ", razonsocial='" + getRazonsocial() + "'" +
+            ", numeraciones='" + getNumeraciones() + "'" +
+            "}";
+    }
+    
 }
