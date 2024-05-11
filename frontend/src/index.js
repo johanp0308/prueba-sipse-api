@@ -32,22 +32,21 @@ function cargarDatos() {
 }
 
 
-$('#form-empre').submit((event) => {
+$('.form-empre').submit((event) => {
     event.preventDefault();
-    let idente = $('.in-ident-empre').val();
-    let razonsocial = $('.in-razon-empre').val();
+    let idente = $('#in-ident-empre').val();
+    let razonsocial = $('#in-razon-empre').val();
+
     let metodo = 'POST';
     $.ajax({
-        url: url ,
+        url: url+"/" ,
         method: metodo,
         contentType: 'application/json',
         headers: {
             'Authorization': 'Bearer ' + token
         },
-        data: JSON.stringify({identificacion: identificacion , razonsocial: razonsocial}),
+        data: JSON.stringify({identificacion: idente , razonsocial: razonsocial}),
         success: () => {
-            $('.in-ident-empre').val('');
-            $('.in-razon-empre').val('');
             cargarDatos();
         }
     });
@@ -80,13 +79,3 @@ $(document).ready(() =>{
 
 
 
-
-document.addEventListener("DOMContentLoaded",(e)=>{
-    
-    
-});
-
-
-document.addEventListener("click",(e)=>{
-
-});
