@@ -1,0 +1,18 @@
+body{
+    background-color: #303030;
+    padding: 10px;
+}
+
+main{
+    color: white;
+    background-color: #4b4b4b;
+    border-radius: 10px;
+    padding: 10px;
+    margin: auto;
+    width: 80%;
+    height: 80vh;
+}
+
+.tabla-content{
+    padding: 20px;
+}
