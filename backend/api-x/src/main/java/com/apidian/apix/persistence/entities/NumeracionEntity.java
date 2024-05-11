@@ -50,13 +50,14 @@ public class NumeracionEntity {
 
     @ManyToOne()
     @JoinColumn(name = "idtipodocumento", nullable = false)
-    private TipoDocumentoEntity tipoDocumento;
+    private TipoDocumentoEntity tipodocumento;
+
 
 
     public NumeracionEntity() {
     }
 
-    public NumeracionEntity(Long id, String prefijo, int consecutivoinicial, int consecutivofinal, Date vigenciainicial, Date vigenciafinal, List<DocumentoEntity> documentos, EmpresaEntity empresa, TipoDocumentoEntity tipoDocumento) {
+    public NumeracionEntity(Long id, String prefijo, int consecutivoinicial, int consecutivofinal, Date vigenciainicial, Date vigenciafinal, List<DocumentoEntity> documentos, EmpresaEntity empresa, TipoDocumentoEntity tipodocumento) {
         this.id = id;
         this.prefijo = prefijo;
         this.consecutivoinicial = consecutivoinicial;
@@ -65,7 +66,7 @@ public class NumeracionEntity {
         this.vigenciafinal = vigenciafinal;
         this.documentos = documentos;
         this.empresa = empresa;
-        this.tipoDocumento = tipoDocumento;
+        this.tipodocumento = tipodocumento;
     }
 
     public Long getId() {
@@ -132,12 +133,12 @@ public class NumeracionEntity {
         this.empresa = empresa;
     }
 
-    public TipoDocumentoEntity getTipoDocumento() {
-        return this.tipoDocumento;
+    public TipoDocumentoEntity getTipodocumento() {
+        return this.tipodocumento;
     }
 
-    public void setTipoDocumento(TipoDocumentoEntity tipoDocumento) {
-        this.tipoDocumento = tipoDocumento;
+    public void setTipodocumento(TipoDocumentoEntity tipodocumento) {
+        this.tipodocumento = tipodocumento;
     }
 
     public NumeracionEntity id(Long id) {
@@ -180,8 +181,8 @@ public class NumeracionEntity {
         return this;
     }
 
-    public NumeracionEntity tipoDocumento(TipoDocumentoEntity tipoDocumento) {
-        setTipoDocumento(tipoDocumento);
+    public NumeracionEntity tipodocumento(TipoDocumentoEntity tipodocumento) {
+        setTipodocumento(tipodocumento);
         return this;
     }
 
@@ -193,12 +194,12 @@ public class NumeracionEntity {
             return false;
         }
         NumeracionEntity numeracionEntity = (NumeracionEntity) o;
-        return Objects.equals(id, numeracionEntity.id) && Objects.equals(prefijo, numeracionEntity.prefijo) && consecutivoinicial == numeracionEntity.consecutivoinicial && consecutivofinal == numeracionEntity.consecutivofinal && Objects.equals(vigenciainicial, numeracionEntity.vigenciainicial) && Objects.equals(vigenciafinal, numeracionEntity.vigenciafinal) && Objects.equals(documentos, numeracionEntity.documentos) && Objects.equals(empresa, numeracionEntity.empresa) && Objects.equals(tipoDocumento, numeracionEntity.tipoDocumento);
+        return Objects.equals(id, numeracionEntity.id) && Objects.equals(prefijo, numeracionEntity.prefijo) && consecutivoinicial == numeracionEntity.consecutivoinicial && consecutivofinal == numeracionEntity.consecutivofinal && Objects.equals(vigenciainicial, numeracionEntity.vigenciainicial) && Objects.equals(vigenciafinal, numeracionEntity.vigenciafinal) && Objects.equals(documentos, numeracionEntity.documentos) && Objects.equals(empresa, numeracionEntity.empresa) && Objects.equals(tipodocumento, numeracionEntity.tipodocumento);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, prefijo, consecutivoinicial, consecutivofinal, vigenciainicial, vigenciafinal, documentos, empresa, tipoDocumento);
+        return Objects.hash(id, prefijo, consecutivoinicial, consecutivofinal, vigenciainicial, vigenciafinal, documentos, empresa, tipodocumento);
     }
 
     @Override
@@ -212,9 +213,10 @@ public class NumeracionEntity {
             ", vigenciafinal='" + getVigenciafinal() + "'" +
             ", documentos='" + getDocumentos() + "'" +
             ", empresa='" + getEmpresa() + "'" +
-            ", tipoDocumento='" + getTipoDocumento() + "'" +
+            ", tipodocumento='" + getTipodocumento() + "'" +
             "}";
     }
-    
 
+    
+    
 }

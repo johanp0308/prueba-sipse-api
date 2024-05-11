@@ -1,11 +1,15 @@
 package com.apidian.apix.persistence.entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -20,6 +24,8 @@ public class TipoDocumentoEntity {
     @Column(nullable = false, length = 255)
     private String descripcion;
 
+    @OneToMany(mappedBy = "tipodocumento", cascade = CascadeType.ALL)
+    private List<NumeracionEntity> numeraciones;
 
     public TipoDocumentoEntity() {
     }

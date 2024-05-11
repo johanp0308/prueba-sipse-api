@@ -11,6 +11,8 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.util.Objects;
 
+import com.apidian.apix.persistence.dto.EmpresaDto;
+
 @Entity
 @Table(name = "empresa")
 public class EmpresaEntity {
@@ -118,4 +120,31 @@ public class EmpresaEntity {
             "}";
     }
     
+    public static EmpresaEntity toEntity(EmpresaDto empresaDto){
+        EmpresaEntity eEnt = new EmpresaEntity();
+        eEnt.setId(empresaDto.getIdempresa());
+        eEnt.setIdentificacion(empresaDto.getIdentificacion());
+        eEnt.setRazonsocial(empresaDto.getRazonsocial());
+
+        return eEnt;
+
+    }
+
+    public static EmpresaDto toDto(EmpresaEntity empresaEntity){
+        EmpresaDto eDto = new EmpresaDto();
+        eDto.setIdempresa(empresaEntity.getId());
+        eDto.setIdentificacion(empresaEntity.getIdentificacion());
+        eDto.setRazonsocial(empresaEntity.getRazonsocial());
+        return eDto;
+        
+    }
+
+    public EmpresaDto toDto(){
+        EmpresaDto eDto = new EmpresaDto();
+        eDto.setIdempresa(this.getId());
+        eDto.setIdentificacion(this.getIdentificacion());
+        eDto.setRazonsocial(this.getRazonsocial());
+        return eDto;
+        
+    }
 }

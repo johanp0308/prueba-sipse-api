@@ -2,6 +2,7 @@ package com.apidian.apix.persistence.entities;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,7 +27,7 @@ public class EstadoEntity {
     @Column(nullable = false)
     private boolean exitoso;
 
-    @OneToMany(mappedBy = "estado")
+    @OneToMany(mappedBy = "estado", cascade = CascadeType.ALL)
     private List<DocumentoEntity> documentos;
 
 

@@ -17,6 +17,7 @@ class Constans {
     protected static final String[] USER_SIGNIN = {
             "/login",
             "/registerUser",
+            "/validateToken",
             "/api/v1"
     };
 
